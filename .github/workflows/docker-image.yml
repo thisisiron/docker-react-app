@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build -t local -f Dockerfile.dev .
     - name: Run tests
-      run: docker run -e CI=true local npm run test -- --coverage
+      run: docker run -e CI=true local npm run test
