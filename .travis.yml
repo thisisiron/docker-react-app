@@ -1,0 +1,16 @@
+sudo: required
+
+language: generic
+
+services:
+  - docker
+
+before_install:
+  - echo "start createing a image with dockerfile"
+  - docker build -t thisisiron/docker-react-app -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true thisisiron/docker-react-app npm run test -- --coverage
+
+after_success:
+  - echo "travis success"
